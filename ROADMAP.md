@@ -1,129 +1,193 @@
-# 🗺️ FlashFusion - Master Roadmap
+# FlashFusion - Master Roadmap
 
-> **Complete Development Plan for FlashFusion Platform**
-> Version: 1.0
-> Last Updated: October 22, 2025
+> **Complete Development Plan: MVP to Post-MVP to Scale**
+> Version: 2.0
+> Last Updated: December 30, 2025
 > Status: In Active Development
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Executive Summary](#executive-summary)
 2. [Current State Overview](#current-state-overview)
-3. [5 New Features Roadmap](#5-new-features-roadmap)
-4. [Existing Features Status](#existing-features-status)
-5. [Implementation Timeline](#implementation-timeline)
-6. [Strategic Questions](#strategic-questions)
-7. [Success Metrics](#success-metrics)
+3. [MVP Completion (Q1 2026)](#mvp-completion-q1-2026)
+4. [Post-MVP Phase 1 (Q2 2026)](#post-mvp-phase-1-q2-2026)
+5. [Post-MVP Phase 2 (Q3 2026)](#post-mvp-phase-2-q3-2026)
+6. [Scale Phase (Q4 2026+)](#scale-phase-q4-2026)
+7. [Technical Debt & Maintenance](#technical-debt--maintenance)
+8. [Success Metrics](#success-metrics)
+9. [Risk Assessment](#risk-assessment)
 
 ---
 
-## 🎯 Executive Summary
+## Executive Summary
 
-FlashFusion is currently **55% complete** as a comprehensive AI-powered development platform. This roadmap outlines:
-
-- **Current State**: 32 features, 22 complete (69%), 23 production-ready (72%)
-- **New Features**: 5 major feature suites requiring 15-20 weeks
-- **Path to Launch**: Multiple launch strategies available
-- **Total Project Completion**: Estimated 100% in 15-20 weeks
+### Project Status
+- **Current Completion**: ~55%
+- **MVP Target**: 100% by Q1 2026
+- **Post-MVP Features**: 5 major feature suites
+- **Scale Target**: 10,000+ users by Q4 2026
 
 ### Quick Stats
-
 ```
-├─ Total Features: 32 existing + 5 new = 37
-├─ Production Ready: 72%
-├─ Active Development: 28%
-├─ Estimated Completion: 15-20 weeks
-└─ Lines of Code: ~7,165 (will grow to ~25,000+)
+├─ Total Features (MVP):     32 existing
+├─ Post-MVP Features:         5 major suites
+├─ Production Ready:         72%
+├─ Lines of Code:            ~7,165 (will grow to ~25,000+)
+└─ Documentation Files:      22+
 ```
 
 ---
 
-## 📊 Current State Overview
+## Current State Overview
 
-### Project Maturity by Category
+### Completion by Category
 
 ```
 Core Platform:        ████████████████░░  90%  ✅
 AI Features:          ██████████░░░░░░░░  55%  🟡
 Workflows:            ████░░░░░░░░░░░░░░  30%  🟠
 User Management:      ██████████████░░░░  85%  🟡
-Collaboration (NEW):  ░░░░░░░░░░░░░░░░░░   0%  🔴
+Payment Integration:  ██████████████████  90%  🟡
 Analytics:            ████████████░░░░░░  70%  🟡
 Developer Experience: ████████░░░░░░░░░░  50%  🟡
 Advanced Features:    ██░░░░░░░░░░░░░░░░  15%  🟠
-
+──────────────────────────────────────────────
 TOTAL PROJECT:        ████████░░░░░░░░░░  55%  🟡
 ```
 
-### Maturity Model Legend
+### What's Production Ready Now
+- Landing page system (100%)
+- Pricing page (100%)
+- AI code generation (100%)
+- AI image generation (100%)
+- Usage tracking (100%)
+- Analytics system (100%)
+- Privacy & legal pages (100%)
+- Navigation & error handling (100%)
+- Feature flags system (100%)
 
-- 🔴 **Not Started** → Planning/Design
-- 🟠 **Foundation** → Database, APIs, basic UI (0-25%)
-- 🟡 **Development** → Core features being built (26-75%)
-- 🟢 **Feature Complete** → All features built, needs polish (76-95%)
-- ✅ **Production Ready** → Tested, documented, deployable (96-100%)
-- 🚀 **Launched** → Live in production
+### What Needs Completion
+- Stripe integration (90% → needs production testing)
+- Authentication (85% → needs production OAuth)
+- Workflows backend (30% → needs full implementation)
+- PWA support (40% → needs service worker)
+- i18n translations (30% → needs translations)
+
+---
+
+## MVP Completion (Q1 2026)
+
+### Phase 1: Critical Path (Weeks 1-4)
+
+#### Week 1: Production Authentication
+- [ ] Configure production OAuth provider
+- [ ] Add email/password fallback
+- [ ] Implement password reset flow
+- [ ] Add email verification
+- [ ] Security audit
+
+**Files to Update:**
+- `server/replitAuth.ts`
+- `server/routes.ts`
+- `client/src/hooks/useAuth.ts`
+
+#### Week 2: Stripe Production
+- [ ] Add production Stripe API keys
+- [ ] Configure webhook endpoint
+- [ ] Test checkout flow end-to-end
+- [ ] Add invoice PDF generation
+- [ ] Handle subscription edge cases
+
+**Files to Update:**
+- `server/stripe.ts`
+- `server/routes.ts`
+
+#### Week 3: Workflow Backend
+- [ ] Implement workflow state machine
+- [ ] Add backend API for each workflow type
+- [ ] Connect to AI generation APIs
+- [ ] Add progress persistence
+- [ ] Implement result storage
+
+**Files to Update:**
+- `server/routes.ts` → modularize to `server/routes/workflows.ts`
+- `server/storage.ts`
+- `shared/schema.ts`
+
+#### Week 4: Quality & Testing
+- [ ] Expand E2E test coverage to 80%
+- [ ] Add workflow tests
+- [ ] Add generation tests
+- [ ] Performance optimization
+- [ ] Security audit
 
 ---
 
-## 🚀 5 New Features Roadmap
+### Phase 2: Feature Completion (Weeks 5-8)
 
-### Overview
+#### Week 5-6: Workflow Polish
+- [ ] AI Creation workflow complete
+- [ ] Publishing workflow (mock)
+- [ ] Commerce workflow (mock)
+- [ ] Analytics workflow (mock)
+- [ ] Security workflow (mock)
+- [ ] Quality workflow (mock)
 
-| Feature | Effort | Dependencies | Status |
-|---------|--------|--------------|--------|
-| 1. Real-Time Collaboration | 4 weeks | WebSocket, Redis (opt) | 🔴 Not Started |
-| 2. AI Code Assistant Chat | 4 weeks | OpenAI API ✅ | 🔴 Not Started |
-| 3. Template Marketplace | 8 weeks | S3/R2, Stripe Connect | 🔴 Not Started |
-| 4. Deployment Pipeline | 5 weeks | GitHub OAuth, Platform APIs | 🔴 Not Started |
-| 5. AI Learning Mode | 6 weeks | OpenAI API ✅ | 🔴 Not Started |
+#### Week 7: PWA & Offline
+- [ ] Create web app manifest
+- [ ] Generate app icons
+- [ ] Add service worker with caching
+- [ ] Implement offline fallback
+- [ ] Test add-to-homescreen
 
-**Total Effort**: 27 weeks sequential, ~15-20 weeks parallel
+#### Week 8: MVP Launch Prep
+- [ ] Final security audit
+- [ ] Performance optimization (Lighthouse 95+)
+- [ ] Load testing (100 concurrent users)
+- [ ] Documentation review
+- [ ] Marketing materials
+- [ ] 🚀 **MVP LAUNCH**
 
 ---
+
+## Post-MVP Phase 1 (Q2 2026)
 
 ### Feature 1: Real-Time Collaboration Workspace
 
-**Vision**: Multi-user collaborative editing for generated projects with live cursor tracking, comments, and version control.
+**Vision**: Multi-user collaborative editing with live cursor tracking, comments, and version control.
 
-#### Phase Breakdown
+**Duration**: 4 weeks
 
-**Phase 1: Foundation** (Week 1)
-- Database schema (rooms, participants, cursors, comments)
-- WebSocket infrastructure with authentication
-- Room-based message routing
-- UI components (room creation, participant list, share links)
+#### Technical Implementation
+```
+Week 1: Foundation
+├── Database schema (rooms, participants, cursors)
+├── WebSocket infrastructure
+├── Room-based message routing
+└── UI components (room creation, share links)
 
-**Phase 2: Core Collaboration** (Week 2)
-- Live cursor tracking with color-coded users
-- Monaco Editor integration
-- Operational Transform for conflict resolution
-- Real-time sync (<100ms latency)
+Week 2: Core Collaboration
+├── Live cursor tracking
+├── Monaco Editor integration
+├── Operational Transform
+└── Real-time sync (<100ms)
 
-**Phase 3: Collaboration Features** (Week 3)
-- Inline code comments and threads
-- @mentions and notifications
-- Version history with auto-save
-- Diff viewer and restore capability
-- Permissions system (Owner, Editor, Viewer)
+Week 3: Features
+├── Inline code comments
+├── @mentions and notifications
+├── Version history
+└── Permissions system
 
-**Phase 4: Polish & Production** (Week 4)
-- Share links with expiration
-- Activity feed and notifications
-- Load testing (10+ concurrent users)
-- E2E tests and documentation
+Week 4: Polish
+├── Share links with expiration
+├── Activity feed
+├── Load testing (10+ concurrent)
+└── Documentation
+```
 
-**Deliverables**:
-- ✅ Live collaborative code editor
-- ✅ Real-time cursor presence
-- ✅ Comment threads
-- ✅ Version history (Git-like)
-- ✅ Permissions management
-- ✅ Share links with expiration
-
-**Success Metrics**:
+**Success Metrics:**
 - Latency: <100ms for updates
 - Concurrent users: 10+ per room
 - Uptime: 99.9%
@@ -132,421 +196,392 @@ TOTAL PROJECT:        ████████░░░░░░░░░░  55
 
 ### Feature 2: AI Code Assistant Chat Interface
 
-**Vision**: Conversational AI that helps users refine, debug, and enhance generated code through natural language chat.
+**Vision**: Conversational AI for code refinement, debugging, and enhancement.
 
-#### Phase Breakdown
+**Duration**: 4 weeks
 
-**Phase 1: Foundation** (Week 1)
-- Database schema (conversations, messages, context)
-- Backend API endpoints with streaming
-- Basic chat UI components
-- Message rendering (user/assistant)
+#### Technical Implementation
+```
+Week 1: Foundation
+├── Database schema (conversations, messages)
+├── Backend API with streaming (SSE)
+├── Basic chat UI
+└── Message rendering
 
-**Phase 2: AI Integration** (Week 2)
-- Context-aware prompts (project files, structure)
-- Server-Sent Events (SSE) for streaming
-- Token-by-token rendering
-- Code action handlers (explain, debug, refactor)
+Week 2: AI Integration
+├── Context-aware prompts
+├── Code action handlers
+├── Token-by-token streaming
+└── Multi-turn conversations
 
-**Phase 3: Advanced Features** (Week 3)
-- Code diff preview with syntax highlighting
-- Apply/reject changes workflow
-- Multi-turn conversation with context retention
-- Pre-built prompt templates
+Week 3: Advanced Features
+├── Code diff preview
+├── Apply/reject changes
+├── Prompt templates
+└── Keyboard shortcuts
 
-**Phase 4: Polish & Production** (Week 4)
-- Markdown rendering with code highlighting
-- Keyboard shortcuts (Cmd+K)
-- Collapsible chat panel
-- Usage tracking and rate limiting
-- E2E tests
+Week 4: Polish
+├── Markdown rendering
+├── Collapsible panel
+├── Usage tracking
+└── E2E tests
+```
 
-**Deliverables**:
-- ✅ Project-aware AI chat
-- ✅ Code explanation on demand
-- ✅ Bug detection and fixes
-- ✅ Refactoring suggestions
-- ✅ Code diff previews
-- ✅ Streaming responses
-
-**Success Metrics**:
+**Success Metrics:**
 - Response time: <3s for first token
 - User satisfaction: >4.5/5 stars
 - Conversation success rate: >80%
 
 ---
 
+## Post-MVP Phase 2 (Q3 2026)
+
 ### Feature 3: Template Marketplace & Community Hub
 
-**Vision**: User-generated template library where creators can share, sell, or remix successful AI prompts and project templates.
+**Vision**: User-generated template library with creator monetization.
 
-#### Phase Breakdown
+**Duration**: 8 weeks
 
-**Phase 1-2: Foundation** (Week 1-2)
-- Database schema (templates, categories, reviews, purchases, profiles)
-- File storage setup (S3/R2 with CDN)
-- Basic UI (grid view, detail page, search)
-- Category navigation
+#### Technical Implementation
+```
+Weeks 1-2: Foundation
+├── Database schema (templates, reviews, purchases)
+├── File storage setup (S3/R2)
+├── Basic UI (grid, detail page)
+└── Category navigation
 
-**Phase 3-4: Template Management** (Week 3-4)
-- Upload flow with validation and preview
-- Metadata editor (title, description, tags, pricing)
-- Template forking with attribution
-- Discovery (search, filters, sorting)
-- Featured templates section
+Weeks 3-4: Template Management
+├── Upload flow with validation
+├── Metadata editor
+├── Template forking
+└── Discovery (search, filters)
 
-**Phase 5-6: Commerce & Community** (Week 5-6)
-- Stripe Connect integration for creators
-- Revenue share model (70/30 split)
-- 5-star rating and review system
-- Creator profiles and portfolios
-- Follower system
+Weeks 5-6: Commerce & Community
+├── Stripe Connect integration
+├── Revenue share (70/30)
+├── Rating/review system
+└── Creator profiles
 
-**Phase 7-8: Advanced Features** (Week 7-8)
-- Moderation system (approval queue, content policy)
-- DMCA takedown process
-- Automated malicious code scanning
-- Analytics for creators (views, downloads, revenue)
-- Collections and bundles
+Weeks 7-8: Advanced
+├── Moderation system
+├── Malicious code scanning
+├── Creator analytics
+└── Collections and bundles
+```
 
-**Deliverables**:
-- ✅ Template upload and management
-- ✅ Search and discovery
-- ✅ Payment processing (Stripe Connect)
-- ✅ Rating and review system
-- ✅ Creator profiles and portfolios
-- ✅ Moderation and content policy
-- ✅ Analytics dashboard for creators
-
-**Success Metrics**:
-- Templates: 1000+ in 6 months
-- Active creators: 100+ in 6 months
+**Success Metrics:**
+- Templates: 1,000+ in 6 months
+- Active creators: 100+
 - Marketplace GMV: $10k+/month
-- Average rating: >4.0 stars
 
 ---
 
 ### Feature 4: Deployment Pipeline Integration
 
-**Vision**: One-click deployment to major hosting platforms with automated CI/CD setup.
+**Vision**: One-click deployment to major hosting platforms.
 
-#### Phase Breakdown
+**Duration**: 5 weeks
 
-**Phase 1: Foundation** (Week 1)
-- Database schema (deployments, configs, logs, connected accounts)
-- GitHub OAuth App setup
-- Repository creation and code commits
-- Basic UI (deployment wizard, platform selection, status page)
+#### Technical Implementation
+```
+Week 1: Foundation
+├── Database schema (deployments, configs)
+├── GitHub OAuth App
+├── Repository creation
+└── Basic UI
 
-**Phase 2-3: Platform Integrations** (Week 2-3)
-- **Vercel**: OAuth, project creation, env vars, deployment trigger
-- **Netlify**: Same as above
-- **Railway**: Same as above
-- **Render**: Same as above
-- **Cloudflare Pages**: Same as above
-- **GitHub Pages**: Same as above
+Weeks 2-3: Platform Integrations
+├── Vercel integration
+├── Netlify integration
+├── Railway integration
+├── Render integration
+├── Cloudflare Pages
+└── GitHub Pages
 
-**Phase 4: Advanced Features** (Week 4)
-- Environment variable wizard with encryption
-- Multi-environment support (staging, production)
-- Custom domain configuration
-- DNS verification and SSL management
-- CI/CD workflow generation (GitHub Actions)
+Week 4: Advanced Features
+├── Environment variable wizard
+├── Multi-environment support
+├── Custom domain setup
+└── CI/CD generation
 
-**Phase 5: Monitoring & Management** (Week 5)
-- Deployment dashboard (all deployments, status)
-- Real-time build logs with streaming
-- Error highlighting and diagnostics
-- Rollback capability
-- Notifications (email, Slack, Discord, in-app)
+Week 5: Monitoring
+├── Deployment dashboard
+├── Build logs streaming
+├── Rollback capability
+└── Notifications
+```
 
-**Deliverables**:
-- ✅ One-click deploy to 6 platforms
-- ✅ Automatic GitHub repo creation
-- ✅ Environment variable management
-- ✅ Custom domain setup
-- ✅ CI/CD pipeline generation
-- ✅ Deployment monitoring and logs
-- ✅ Rollback capability
-
-**Success Metrics**:
+**Success Metrics:**
 - Deploy success rate: >95%
 - Average deploy time: <5 minutes
 - Platforms supported: 6+
-- User satisfaction: >4.5/5
 
 ---
 
 ### Feature 5: AI Learning Mode & Skill Development
 
-**Vision**: Gamified learning system that teaches users to write better AI prompts and understand generated code.
+**Vision**: Gamified learning for prompt engineering and code understanding.
 
-#### Phase Breakdown
+**Duration**: 6 weeks
 
-**Phase 1: Foundation** (Week 1)
-- Database schema (learning paths, lessons, progress, achievements)
-- Content structure design
-- Basic UI (learning dashboard, progress tracker, achievement showcase)
+#### Technical Implementation
+```
+Week 1: Foundation
+├── Database schema (paths, lessons, progress)
+├── Content structure
+└── Basic UI
 
-**Phase 2-3: Prompt Engineering Course** (Week 2-3)
-- 5 interactive lessons (basics, structuring, advanced, debugging, best practices)
-- Interactive exercises (fill-in-the-blank, before/after)
-- Live AI generation with user prompts
-- Quizzes with instant feedback and grading
+Weeks 2-3: Prompt Engineering Course
+├── 5 interactive lessons
+├── Exercises
+├── Live AI generation
+└── Quizzes
 
-**Phase 4-5: Code Understanding Path** (Week 4-5)
-- Code explanation lessons
-- Understanding project structure
-- Common patterns and debugging techniques
-- Interactive code labs with live testing
-- Certification system with PDF generation
-- LinkedIn integration for credentials
+Weeks 4-5: Code Understanding
+├── Code explanation lessons
+├── Project structure guides
+├── Interactive labs
+└── Certification system
 
-**Phase 6: Gamification & Community** (Week 6)
-- Daily challenges ("Build this with AI")
-- Quality scoring algorithm
-- Leaderboard system
-- Achievement badges and XP levels
-- Streak tracking
-- Community features (share solutions, upvote, comments)
+Week 6: Gamification
+├── Daily challenges
+├── Leaderboards
+├── Achievement badges
+└── Community sharing
+```
 
-**Deliverables**:
-- ✅ Prompt engineering course (5 lessons)
-- ✅ Code understanding path
-- ✅ Interactive exercises and quizzes
-- ✅ Certification system
-- ✅ Daily challenges
-- ✅ Gamification (badges, XP, leaderboard)
-- ✅ Community sharing
-
-**Success Metrics**:
-- Course completion rate: >60%
-- User skill improvement: +40% prompt quality
+**Success Metrics:**
+- Course completion: >60%
+- Skill improvement: +40% prompt quality
 - Daily active learners: 500+
-- Certification completion: 30% of users
 
 ---
 
-## ✅ Existing Features Status
+## Scale Phase (Q4 2026+)
 
-### Complete & Production Ready (23 features)
+### Infrastructure Scaling
 
-| Feature | Completeness | Status |
-|---------|--------------|--------|
-| Landing Page System | 100% | ✅ Production Ready |
-| Background Animation | 100% | ✅ Production Ready |
-| Hero Section | 100% | ✅ Production Ready |
-| Metrics Dashboard | 100% | ✅ Production Ready |
-| Features Grid | 100% | ✅ Production Ready |
-| Build Process Timeline | 100% | ✅ Production Ready |
-| Pricing Page | 100% | ✅ Production Ready |
-| AI Code Generation | 100% | ✅ Production Ready |
-| AI Image Generation | 100% | ✅ Production Ready |
-| Usage Tracking | 100% | ✅ Production Ready |
-| Analytics System | 100% | ✅ Production Ready |
-| Consent Banner | 100% | ✅ Production Ready |
-| Agent Teasers Component | 100% | ⚠️ Not Enabled |
-| Navigation | 100% | ✅ Production Ready |
-| Error Boundaries | 100% | ✅ Production Ready |
-| Feature Flags | 100% | ✅ Production Ready |
-| Privacy Policy | 100% | ✅ Production Ready |
-| Terms of Service | 100% | ✅ Production Ready |
-| Status Page | 100% | ✅ Production Ready |
-| 404 Page | 100% | ✅ Production Ready |
-| QA Page | 100% | ✅ Production Ready |
-| Safe Iframe | 100% | ✅ Production Ready |
-| Rate Limiting | 100% | ✅ Production Ready |
+```
+├── Database
+│   ├── Read replicas
+│   ├── Connection pooling optimization
+│   └── Query optimization
+│
+├── Caching
+│   ├── Redis for sessions
+│   ├── CDN for static assets
+│   └── API response caching
+│
+├── Monitoring
+│   ├── APM integration (Sentry)
+│   ├── Real-time alerts
+│   └── Performance dashboards
+│
+└── Availability
+    ├── Multi-region deployment
+    ├── Auto-scaling
+    └── 99.99% uptime SLA
+```
 
-### Partial Features Requiring Completion (9 features)
+### Enterprise Features
 
-| Feature | Completeness | Effort to Complete | Priority |
-|---------|--------------|-------------------|----------|
-| Stripe Integration | 90% | 2 days | 🔴 High |
-| Authentication (Production) | 85% | 3 days | 🔴 High |
-| Workflows (Backend Logic) | 60% | 2 weeks | 🟡 Medium |
-| Command Palette | 50% | 1 week | 🟢 Low |
-| WebSocket Infrastructure | 50% | 3 days | 🔴 High |
-| E2E Test Coverage | 40% | 2 weeks | 🟡 Medium |
-| PWA Support | 40% | 1 week | 🟢 Low |
-| i18n System | 30% | 2 weeks | 🟢 Low |
-| API Documentation | 20% | 1 week | 🟡 Medium |
+| Feature | Description | Priority |
+|---------|-------------|----------|
+| SSO/SAML | Enterprise authentication | High |
+| Audit Logs | Compliance tracking | High |
+| Custom Domains | White-label support | Medium |
+| Private Cloud | Self-hosted option | Medium |
+| API Access | Programmatic access | High |
+| Team Management | Org structure | High |
+| Advanced Analytics | Custom dashboards | Medium |
+| SLA | Guaranteed uptime | High |
 
-**Total Effort to Complete Partials**: ~8 weeks sequential, ~4 weeks parallel
+### B2B Expansion
 
-### Not Started (1 feature)
-
-| Feature | Status | Effort | Priority |
-|---------|--------|--------|----------|
-| Referral System | 🔴 Not Started | 2 weeks | 🟢 Low |
+- Enterprise sales team
+- Custom pricing tiers
+- Dedicated support
+- Training programs
+- Partner integrations
 
 ---
 
-## 📅 Implementation Timeline
+## Technical Debt & Maintenance
 
-### Timeline Options
+### Immediate (Q1 2026)
 
-#### Option A: Sequential Development (Safe, Predictable)
-- **Total Duration**: 20 weeks
-- **Approach**: Complete one feature fully before starting next
-- **Risk**: Low
-- **Time to First Feature**: 4 weeks
+| Issue | Location | Priority |
+|-------|----------|----------|
+| Demo user deprecated fields | `storage.ts:588-617` | High |
+| Hardcoded feature flags | `storage.ts:328-335` | Medium |
+| Large routes file | `routes.ts` (677 lines) | Medium |
+| Usage credit rollback | `routes.ts:458-565` | High |
 
-#### Option B: Parallel Sprints (Fast, Complex)
-- **Total Duration**: 12-14 weeks
-- **Approach**: Work on 2-3 features simultaneously
-- **Risk**: Medium
-- **Time to First Feature**: 4 weeks
+### Refactoring Roadmap
 
-#### Option C: Phased Rollout (Balanced, Iterative)
-- **Total Duration**: 16-18 weeks
-- **Approach**: Build Phase 1 of all features, then Phase 2, etc.
-- **Risk**: Low-Medium
-- **Time to First Feature**: 6-8 weeks (MVP)
+#### Phase 1: Route Modularization
+```
+server/routes.ts (677 lines)
+    ↓
+server/
+├── routes/
+│   ├── index.ts        # Route aggregator
+│   ├── auth.ts         # Authentication routes
+│   ├── generation.ts   # AI generation routes
+│   ├── workflows.ts    # Workflow routes
+│   ├── stripe.ts       # Payment routes
+│   ├── analytics.ts    # Analytics routes
+│   └── images.ts       # Image routes
+```
 
-#### Option D: MVP First, Iterate Later
-- **Total Duration**: 14-18 weeks
-- **Approach**: Build MVP of all 5 features (6-8 weeks), then iterate
-- **Risk**: Medium
-- **Time to First Feature**: 6-8 weeks (MVP)
+#### Phase 2: Service Layer
+```
+server/
+├── services/
+│   ├── UserService.ts
+│   ├── GenerationService.ts
+│   ├── WorkflowService.ts
+│   ├── PaymentService.ts
+│   └── AnalyticsService.ts
+```
 
-### Recommended 20-Week Sprint Plan
-
-#### **Weeks 1-4: Quick Wins & Foundation**
-- ✅ Day 1: Enable Agent Teasers feature flag
-- ✅ Week 1: Complete Stripe integration & authentication
-- ✅ Week 1: Add missing assets (grain.png, OG images)
-- 🔨 **Weeks 1-4: Build AI Chat Assistant** ← NEW FEATURE #2
-- ✅ Week 2: Complete PWA setup
-
-#### **Weeks 5-8: Core Collaboration**
-- 🔨 **Weeks 5-8: Build Real-Time Collaboration** ← NEW FEATURE #1
-- ✅ Weeks 5-7: Complete 6 workflow backend logic
-- ✅ Week 8: Add API documentation
-
-#### **Weeks 9-13: Deployment & Marketplace**
-- 🔨 **Weeks 9-13: Build Deployment Pipeline** ← NEW FEATURE #4
-- 🔨 **Weeks 9-16: Build Template Marketplace (start)** ← NEW FEATURE #3
-- ✅ Week 10: Add performance monitoring
-- ✅ Weeks 11-12: Expand E2E test coverage to 80%
-
-#### **Weeks 14-19: Learning & Marketplace**
-- 🔨 **Weeks 14-19: Build AI Learning Mode** ← NEW FEATURE #5
-- 🔨 **Weeks 9-16: Complete Template Marketplace (finish)** ← NEW FEATURE #3
-- ✅ Week 17: Build Command Palette
-- ✅ Week 18: Add Referral System
-- ✅ Week 19: Add i18n translations (Spanish, French)
-
-#### **Week 20: Final Polish & Launch Prep**
-- ✅ Security audit
-- ✅ Performance optimization (Lighthouse >90)
-- ✅ Complete documentation
-- ✅ Marketing materials
-- ✅ Load testing
-- 🚀 **PRODUCTION LAUNCH**
+#### Phase 3: Configuration Management
+```
+server/
+├── config/
+│   ├── index.ts        # Config aggregator
+│   ├── database.ts     # DB config
+│   ├── features.ts     # Feature flags
+│   ├── ai.ts           # AI provider config
+│   └── stripe.ts       # Payment config
+```
 
 ---
 
-## ❓ Strategic Questions
+## Success Metrics
 
-### Question 1: Timeline & Resource Allocation
+### Platform KPIs
 
-**Which timeline approach should we take?**
-
-- **Option A**: Sequential (20 weeks, safe)
-- **Option B**: Parallel Sprints (12-14 weeks, complex)
-- **Option C**: Phased Rollout (16-18 weeks, balanced)
-- **Option D**: MVP First (14-18 weeks, iterative)
-
-### Question 2: Existing Features - Complete or Leave?
-
-**How should we handle 9 partial features (8 weeks to complete)?**
-
-- **Option A**: Complete all existing features FIRST (+8 weeks)
-- **Option B**: Complete critical features only (Stripe, Auth, Workflows, WebSocket) (+3 weeks)
-- **Option C**: Complete in parallel with new features (no delay)
-- **Option D**: Leave as-is, focus 100% on new features (no delay)
-
-### Question 3: Production Launch Strategy
-
-**What's the launch approach?**
-
-- **Option A**: Big Bang Launch (all features at once, Week 20)
-- **Option B**: Rolling Launch (launch features as completed, starting Week 4)
-- **Option C**: Beta/Early Access (MVP to beta users Week 6-8, public Week 16-20)
-- **Option D**: Freemium Gating (basic features free, premium behind paywall, gradual unlock)
-
----
-
-## 📈 Success Metrics
-
-### Platform-Wide KPIs
-
-| Metric | Current | Target (6 months) |
-|--------|---------|-------------------|
-| **Active Users** | 0 | 10,000+ |
-| **Code Generations** | 0 | 50,000+/month |
-| **Image Generations** | 0 | 20,000+/month |
-| **Paying Customers** | 0 | 500+ |
-| **MRR** | $0 | $25,000+ |
-| **Template Marketplace GMV** | $0 | $10,000+/month |
-| **Lighthouse Score** | 90+ | 95+ |
-| **Uptime** | - | 99.9% |
+| Metric | Current | Q1 2026 | Q2 2026 | Q4 2026 |
+|--------|---------|---------|---------|---------|
+| Active Users | 0 | 500 | 2,000 | 10,000+ |
+| Code Generations | 0 | 5,000/mo | 20,000/mo | 50,000+/mo |
+| Image Generations | 0 | 2,000/mo | 10,000/mo | 20,000+/mo |
+| Paying Customers | 0 | 50 | 200 | 500+ |
+| MRR | $0 | $2,500 | $10,000 | $25,000+ |
+| Lighthouse Score | 90+ | 95+ | 95+ | 98+ |
+| Uptime | - | 99.5% | 99.9% | 99.99% |
 
 ### Feature-Specific KPIs
 
-**Real-Time Collaboration**:
-- Active collaboration sessions: 1,000+/month
-- Average concurrent users per room: 3-5
-- Collaboration to conversion rate: 15%+
-
-**AI Chat Assistant**:
-- Chat sessions: 5,000+/month
-- User satisfaction: >4.5/5 stars
-- Conversation success rate: >80%
-
-**Template Marketplace**:
-- Templates: 1,000+ in 6 months
-- Active creators: 100+ in 6 months
-- Marketplace GMV: $10k+/month
-
-**Deployment Pipeline**:
-- Deployments: 2,000+/month
-- Deploy success rate: >95%
-- Average deploy time: <5 minutes
-
-**AI Learning Mode**:
-- Course enrollments: 5,000+ in 6 months
-- Completion rate: >60%
-- Certification completion: 30% of users
+| Feature | Metric | Target |
+|---------|--------|--------|
+| Collaboration | Active sessions/mo | 1,000+ |
+| AI Chat | User satisfaction | >4.5/5 |
+| Marketplace | Templates | 1,000+ |
+| Deployment | Success rate | >95% |
+| Learning | Completion rate | >60% |
 
 ---
 
-## 🎯 Next Steps
+## Risk Assessment
 
-1. **Answer 3 Strategic Questions** (see above)
-2. **Approve this roadmap** or request changes
-3. **Provide required credentials**:
-   - Stripe API keys (if not already provided)
-   - GitHub OAuth App credentials
-   - Platform API tokens (Vercel, Netlify, etc.)
-   - AWS S3 or Cloudflare R2 credentials (for marketplace)
-4. **Begin development** based on chosen timeline
+### Technical Risks
 
----
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| OpenAI API changes | Medium | High | Multi-provider support (Gemini) |
+| Database scaling | Medium | High | Early optimization, read replicas |
+| Security breach | Low | Critical | Regular audits, penetration testing |
+| Performance degradation | Medium | Medium | Monitoring, load testing |
 
-## 📞 Resources & Support
+### Business Risks
 
-- **Main Repository**: `/home/user/FlashFusion`
-- **Current Branch**: `claude/get-new-sn-011CUNScBVSoWzAb2WDBQWr8`
-- **Documentation**:
-  - [Development Status](./DEVELOPMENT_STATUS.md)
-  - [New Features Plan](./NEW_FEATURES_PLAN.md)
-  - [Implementation Timeline](./IMPLEMENTATION_TIMELINE.md)
-  - [README](./README.md)
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| Market competition | High | Medium | Unique features, speed to market |
+| Pricing pressure | Medium | Medium | Value-based pricing, enterprise tier |
+| AI cost increases | Medium | High | Cost optimization, Gemini fallback |
+| Regulatory changes | Low | Medium | Compliance monitoring, legal review |
 
 ---
 
-**Document Version**: 1.0
-**Last Updated**: October 22, 2025
-**Status**: Awaiting Strategic Decisions
-**Next Review**: Upon timeline approval
+## Resource Requirements
+
+### Development Team
+
+| Role | Current | Needed |
+|------|---------|--------|
+| Full-Stack Engineer | 1 | 3 |
+| Frontend Engineer | 0 | 2 |
+| Backend Engineer | 0 | 2 |
+| DevOps Engineer | 0 | 1 |
+| QA Engineer | 0 | 1 |
+| Designer | 0 | 1 |
+
+### Infrastructure
+
+| Resource | Current | MVP | Scale |
+|----------|---------|-----|-------|
+| Database | Neon Free | Neon Pro | Neon Enterprise |
+| Hosting | Replit | Vercel Pro | Multi-region |
+| CDN | None | Vercel Edge | Cloudflare |
+| Monitoring | None | Sentry | DataDog |
+| CI/CD | GitHub Actions | GitHub Actions | Enhanced |
+
+### Budget Estimate (Monthly)
+
+| Phase | Infrastructure | AI API | Tools | Total |
+|-------|----------------|--------|-------|-------|
+| MVP | $100 | $500 | $100 | $700 |
+| Post-MVP | $500 | $2,000 | $300 | $2,800 |
+| Scale | $2,000 | $5,000 | $1,000 | $8,000 |
+
+---
+
+## Milestones & Deadlines
+
+### 2026 Q1 (MVP)
+- [ ] **January 15**: Authentication production-ready
+- [ ] **January 31**: Stripe production-ready
+- [ ] **February 15**: Workflows backend complete
+- [ ] **February 28**: PWA complete
+- [ ] **March 15**: MVP Launch 🚀
+
+### 2026 Q2 (Post-MVP Phase 1)
+- [ ] **April 15**: Real-time collaboration
+- [ ] **May 15**: AI chat assistant
+- [ ] **June 30**: Phase 1 complete
+
+### 2026 Q3 (Post-MVP Phase 2)
+- [ ] **July 31**: Template marketplace MVP
+- [ ] **August 31**: Deployment pipeline
+- [ ] **September 30**: AI learning mode
+
+### 2026 Q4 (Scale)
+- [ ] **October**: Enterprise features
+- [ ] **November**: Multi-region deployment
+- [ ] **December**: 10,000 users milestone 🎯
+
+---
+
+## Next Steps
+
+1. **Immediate**: Review and approve this roadmap
+2. **Week 1**: Begin MVP Phase 1 (Authentication)
+3. **Ongoing**: Weekly progress reviews
+4. **Monthly**: Roadmap updates and priority adjustments
+
+---
+
+## Document History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0 | 2025-12-30 | Complete rewrite with post-MVP plan |
+| 1.0 | 2025-10-22 | Initial roadmap |
+
+---
+
+**Status**: Awaiting Approval
+**Next Review**: Weekly during active development
